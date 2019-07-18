@@ -1,0 +1,6 @@
+import React from "react";
+export default class HouseList extends React.Component {
+  render() {
+    return <div>这是 列表 组件</div>;
+  }
+}

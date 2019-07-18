@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// 配置路由  整个项目的根组件
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// 首页组件
+import Home from "./pages/Home";
+// 城市列表组件
+import CityList from "./pages/CityList";
+
+import { Button } from "antd-mobile";
+export default class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div className="app">
+          <ul>
+            <li>
+              <Link to="/home">首页</Link>
+            </li>
+            <li>
+              <Link to="/list">城市列表页</Link>
+            </li>
+          </ul>
+          <Route path="/home" component={Home} />
+          <Route path="/list" component={CityList} />
+          <Button type="primary">登陆</Button>
+        </div>
+      </Router>
+    );
+  }
 }
-
-export default App;
